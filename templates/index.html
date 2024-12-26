@@ -1,89 +1,94 @@
-{% extends "base.html" %}
 
-{% block content %}
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-    <div class="container h-100 d-flex align-items-center">
-        <div class="row w-100">
-            <div class="col-lg-8 mx-auto text-center">
-                <h1 class="display-4 mb-4" data-aos="fade-down">Engineering Excellence</h1>
-                <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
-                    Innovative solutions for tomorrow's challenges
-                </p>
-                <a href="#products" class="btn btn-lg btn-secondary" data-aos="zoom-in" data-aos-delay="400">
-                    Explore Products <i class="fas fa-arrow-right ms-2"></i>
-                </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDSG Engineering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/logo.png" height="40" alt="IDSG Logo"></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Products Section -->
-<section id="products" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Our Products</h2>
-        <div class="row g-4">
-            {% for product in products %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card product-card h-100" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-                    <div class="card-img-container">
-                        <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Engineering Excellence</h1>
+            <p>Innovative solutions for tomorrow's challenges</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ product.image }}" alt="{{ product.name }}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <span class="badge bg-secondary">{{ product.category }}</span>
+                    <div class="product-info">
+                        <h3>{{ product.name }}</h3>
+                        <span class="category">{{ product.category }}</span>
                     </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- About Us Section -->
-<section id="about" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">About IDSG</h2>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="about-content" data-aos="fade-up">
-                    <p>Established in Singapore in 2013, IDSG has a 200 square meter local workshop, equipped with CNC, milling, lathe, drilling, cutting, laser, bending, tapping machinery, etc. We are able to provide all kinds of engineering service for you promptly.</p>
-                    
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2">• We provide Design & Consultation service since the early stage of your idea conceptualization</li>
-                        <li class="mb-2">• We provide Simulation & Rapid Prototyping service to verify your technologies</li>
-                        <li class="mb-2">• We provide Customization service on your component level & system level</li>
-                        <li class="mb-2">• We provide Scale-Up service from laboratory to industry</li>
-                        <li class="mb-2">• We provide Production service for the final push to the market</li>
-                    </ul>
-
-                    <p class="mt-4">We serve both Academic and Industrial market, such as universities, research centers, institutes and MNCs & SMEs.</p>
-                    
-                    <p>Our business focuses are mainly environmental engineering, precision engineering, civil engineering, thermal & fluidic dynamics, automation & robotics, etc.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Partners Showcase -->
-<section id="partners" class="py-5 bg-dark">
-    <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Our Partners</h2>
-        <div class="partners-slider" data-aos="fade-up">
-            <div class="row">
-                {% for partner in partners %}
-                <div class="partner-item">
-                    <img src="{{ partner }}" class="img-fluid partner-logo" alt="Partner">
-                </div>
-                {% endfor %}
-                {% for partner in partners %}
-                <div class="partner-item">
-                    <img src="{{ partner }}" class="img-fluid partner-logo" alt="Partner">
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
-</section>
-{% endblock %}
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About IDSG</h2>
+            <div class="about-content">
+                <p>Established in Singapore in 2013, IDSG has a 200 square meter local workshop, equipped with CNC, milling, lathe, drilling, cutting, laser, bending, tapping machinery, etc. We are able to provide all kinds of engineering service for you promptly.</p>
+                
+                <ul>
+                    <li>We provide Design & Consultation service since the early stage of your idea conceptualization</li>
+                    <li>We provide Simulation & Rapid Prototyping service to verify your technologies</li>
+                    <li>We provide Customization service on your component level & system level</li>
+                    <li>We provide Scale-Up service from laboratory to industry</li>
+                    <li>We provide Production service for the final push to the market</li>
+                </ul>
+
+                <p>We serve both Academic and Industrial market, such as universities, research centers, institutes and MNCs & SMEs.</p>
+                <p>Our business focuses are mainly environmental engineering, precision engineering, civil engineering, thermal & fluidic dynamics, automation & robotics, etc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="section">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="partner-logo-scroll">
+                <div class="logos">
+                    {% for partner in partners %}
+                    <img src="{{ partner }}" class="partner-logo" alt="Partner">
+                    {% endfor %}
+                </div>
+                <div class="logos">
+                    {% for partner in partners %}
+                    <img src="{{ partner }}" class="partner-logo" alt="Partner">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
