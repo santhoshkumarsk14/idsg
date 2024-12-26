@@ -69,9 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
             card.className = 'product-card';
             card.setAttribute('data-aos', 'fade-up');
             card.setAttribute('data-aos-delay', (i % 3) * 100);
+            const displayName = image.replace('.webp', '');
             card.innerHTML = `
-                <img src="/static/images/products/${image}" alt="${name}">
-                <h3>${name}</h3>
+                <img src="/static/images/products/${image}" alt="${displayName}">
+                <h3>${displayName}</h3>
             `;
             productsGrid.appendChild(card);
         }
