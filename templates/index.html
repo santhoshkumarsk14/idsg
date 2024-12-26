@@ -39,4 +39,20 @@
         </div>
     </div>
 </section>
+
+<!-- Partners Showcase -->
+<section id="partners" class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Our Partners</h2>
+        <div class="partners-slider" data-aos="fade-up">
+            <div class="row">
+                {% for partner in partners %}
+                <div class="col-4 col-md-3 col-lg-2 mb-4">
+                    <img src="{{ partner }}" class="img-fluid partner-logo" alt="Partner">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

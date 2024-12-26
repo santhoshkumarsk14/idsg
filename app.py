@@ -41,6 +41,13 @@ PRODUCTS = [
     }
 ]
 
+# Get partner images
+def get_partner_images():
+    partner_path = 'static/images/partners'
+    partner_images = [f'/static/images/partners/{img}' for img in os.listdir(partner_path) if img.endswith(('.png', '.jpg', '.jpeg'))]
+    return partner_images
+
 @app.route('/')
 def index():
-    return render_template('index.html', products=PRODUCTS)
+    partners = get_partner_images()
+    return render_template('index.html', products=PRODUCTS, partners=partners)
