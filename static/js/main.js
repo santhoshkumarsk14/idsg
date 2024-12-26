@@ -51,22 +51,47 @@ document.addEventListener('DOMContentLoaded', function() {
         'Series-parallels_high_pressure_testing_system.jpg', 'Wire_cutting_service_for_stress_test.jpg'
     ];
 
-    function createProductCards() {
-        productsGrid.innerHTML = '';
-        productImages.forEach((image, index) => {
+    let currentProductIndex = 0;
+    const productsPerPage = 3;
+
+    function createProductCards(startIndex, count) {
+        const endIndex = Math.min(startIndex + count, productImages.length);
+        for(let i = startIndex; i < endIndex; i++) {
+            const image = productImages[i];
             const name = image.replace(/_/g, ' ').replace('.jpg', '');
             const card = document.createElement('div');
             card.className = 'product-card';
             card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', (index % 3) * 100);
+            card.setAttribute('data-aos-delay', (i % 3) * 100);
             card.innerHTML = `
                 <img src="/static/images/products/${image}" alt="${name}">
                 <h3>${name}</h3>
             `;
             productsGrid.appendChild(card);
-        });
+        }
+        return endIndex;
     }
-    createProductCards();
+
+    function initializeProducts() {
+        productsGrid.innerHTML = '';
+        currentProductIndex = createProductCards(0, productsPerPage);
+        
+        if (currentProductIndex < productImages.length) {
+            const showMoreBtn = document.createElement('button');
+            showMoreBtn.className = 'show-more-btn';
+            showMoreBtn.textContent = 'Show More';
+            showMoreBtn.onclick = () => {
+                const newIndex = createProductCards(currentProductIndex, productsPerPage);
+                currentProductIndex = newIndex;
+                if (currentProductIndex >= productImages.length) {
+                    showMoreBtn.remove();
+                }
+                AOS.refresh();
+            };
+            productsGrid.parentElement.appendChild(showMoreBtn);
+        }
+    }
+    initializeProducts();
 
     // Partner logos carousel
     const logosContainer = document.querySelector('.logos');

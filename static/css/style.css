@@ -199,11 +199,12 @@ body {
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(255, 255, 255, 0.95);
         padding: 1rem;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
@@ -228,5 +229,46 @@ body {
     .partner-logo {
         height: 60px;
         margin: 0 20px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background: #f8f9fa;
+        padding: 60px 0;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info i {
+        font-size: 2rem;
+        color: #007bff;
+        margin-bottom: 1rem;
+    }
+
+    .show-more-btn {
+        display: block;
+        margin: 2rem auto;
+        padding: 10px 30px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .show-more-btn:hover {
+        background: #0056b3;
     }
 }
