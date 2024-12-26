@@ -5,7 +5,7 @@ channel = "stable-24_05"
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["python", "main.py"]
+run = ["sh", "-c", "python -m http.server 5000"]
 
 [workflows]
 runButton = "Project"
@@ -17,10 +17,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Flask Server"
+args = "Static Server"
 
 [[workflows.workflow]]
-name = "Flask Server"
+name = "Static Server"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -31,7 +31,7 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py"
+args = "python -m http.server 5000"
 waitForPort = 5000
 
 [[ports]]
