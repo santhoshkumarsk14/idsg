@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     let currentProductIndex = 0;
-    const productsPerPage = 3;
+    const productsPerPage = 6;
 
     function createProductCards(startIndex, count) {
         const endIndex = Math.min(startIndex + count, productImages.length);
