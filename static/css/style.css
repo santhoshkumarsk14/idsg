@@ -1,8 +1,40 @@
+:root[data-theme="light"] {
+    --primary-color: #60b6e6;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #60b6e6;
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --navbar-bg: rgba(0, 0, 0, 0.9);
+}
+
 /* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 body {
@@ -21,7 +53,7 @@ body {
 .navbar {
     position: fixed;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: var(--navbar-bg);
     padding: 1rem 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
