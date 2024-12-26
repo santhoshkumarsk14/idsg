@@ -1,3 +1,9 @@
+// Mobile menu handling
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
 // Theme handling
 function toggleTheme() {
     const root = document.documentElement;
