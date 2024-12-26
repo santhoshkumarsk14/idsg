@@ -4,23 +4,7 @@ function toggleMenu() {
     navLinks.classList.toggle('active');
 }
 
-// Theme handling
-function toggleTheme() {
-    const root = document.documentElement;
-    const currentTheme = root.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    root.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-// Initialize theme
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-    initializeTheme();
     // Initialize AOS animations
     AOS.init({
         duration: 1000,
@@ -36,6 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });
+            }
+            // Close mobile menu after clicking a link
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
             }
         });
     });
@@ -69,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPartnerLogos() {
         partnerLogos.forEach(logo => {
             const img = document.createElement('img');
-            img.src = `static/images/partners/${logo}`;
+            img.src = `/static/images/partners/${logo}`;
             img.alt = logo.split('.')[0];
             img.className = 'partner-logo';
             logosContainer.appendChild(img);
