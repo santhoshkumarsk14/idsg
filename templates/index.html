@@ -47,7 +47,12 @@
         <div class="partners-slider" data-aos="fade-up">
             <div class="row">
                 {% for partner in partners %}
-                <div class="col-4 col-md-3 col-lg-2 mb-4">
+                <div class="partner-item">
+                    <img src="{{ partner }}" class="img-fluid partner-logo" alt="Partner">
+                </div>
+                {% endfor %}
+                {% for partner in partners %}
+                <div class="partner-item">
                     <img src="{{ partner }}" class="img-fluid partner-logo" alt="Partner">
                 </div>
                 {% endfor %}

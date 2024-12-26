@@ -91,8 +91,33 @@ body {
     opacity: 1;
 }
 
+.partner-item {
+    padding: 0 20px;
+    display: inline-block;
+}
+
 .partners-slider {
     overflow: hidden;
+    position: relative;
+}
+
+.partners-slider .row {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partners-slider:hover .row {
+    animation-play-state: paused;
 }
 
 /* Responsive Adjustments */
