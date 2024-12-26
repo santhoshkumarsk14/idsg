@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-4" data-aos="fade-down">Engineering Excellence</h1>
+                <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                    Innovative solutions for tomorrow's challenges
+                </p>
+                <a href="#products" class="btn btn-lg btn-secondary" data-aos="zoom-in" data-aos-delay="400">
+                    Explore Products <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Our Products</h2>
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="card-img-container">
+                        <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <span class="badge bg-secondary">{{ product.category }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
