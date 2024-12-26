@@ -42,13 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update products grid
     const productsGrid = document.querySelector('.products-grid');
     const productImages = [
-        '3_Axis_coating_system.jpg', 'Chemical_mixing_system.jpg',
-        'Copper_mold.jpg', 'Customized_temperature_chamber.jpg',
-        'Die_cutter.jpg', 'High_pressure_membrane_cell.jpg',
-        'Microbubble_generator.jpg', 'Microfluidic_system.jpg',
-        'Mooncake_mold.jpg', 'Photochemical_Catalysis_system.jpg',
-        'Precision_chemical_auto_loading_system.jpg', 'Rotation_coating_system.jpg',
-        'Series-parallels_high_pressure_testing_system.jpg', 'Wire_cutting_service_for_stress_test.jpg'
+        '3 Axis Coating system.webp', 'Cement mold.webp',
+        'Chemical Mixing system.webp', 'Copper mold.webp',
+        'Customised jig.webp', 'Customized battery box.webp',
+        'Customized display box.webp', 'Customized jig.webp',
+        'Customized temperature chamber.webp', 'Die cutter.webp',
+        'Flat sheet module.webp', 'High pressure membrane cell.webp',
+        'Microbubble generator.webp', 'Microfluidic system.webp',
+        'Mooncake mold.webp', 'Non-flow-through hydraulic adapter.webp',
+        'PCR integration cassette.webp', 'Photochemical Catalysis System.webp',
+        'Pilot production batch.webp', 'Precision chemical auto loading system.webp',
+        'Roatation coating system.webp', 'Rotation and locking system.webp',
+        'Series-parallels high pressure testing system.webp', 'UV capillary chamber.webp',
+        'Wire cutting service for stress test.webp'
     ];
 
     let currentProductIndex = 0;
