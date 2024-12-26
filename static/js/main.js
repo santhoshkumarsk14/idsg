@@ -39,6 +39,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Update products grid
+    const productsGrid = document.querySelector('.products-grid');
+    const productImages = [
+        '3_Axis_coating_system.jpg', 'Chemical_mixing_system.jpg',
+        'Copper_mold.jpg', 'Customized_temperature_chamber.jpg',
+        'Die_cutter.jpg', 'High_pressure_membrane_cell.jpg',
+        'Microbubble_generator.jpg', 'Microfluidic_system.jpg',
+        'Mooncake_mold.jpg', 'Photochemical_Catalysis_system.jpg',
+        'Precision_chemical_auto_loading_system.jpg', 'Rotation_coating_system.jpg',
+        'Series-parallels_high_pressure_testing_system.jpg', 'Wire_cutting_service_for_stress_test.jpg'
+    ];
+
+    function createProductCards() {
+        productsGrid.innerHTML = '';
+        productImages.forEach((image, index) => {
+            const name = image.replace(/_/g, ' ').replace('.jpg', '');
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', (index % 3) * 100);
+            card.innerHTML = `
+                <img src="/static/images/products/${image}" alt="${name}">
+                <h3>${name}</h3>
+            `;
+            productsGrid.appendChild(card);
+        });
+    }
+    createProductCards();
+
     // Partner logos carousel
     const logosContainer = document.querySelector('.logos');
     const partnerLogos = [
